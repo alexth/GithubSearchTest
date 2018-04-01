@@ -13,7 +13,7 @@ class NetworkManager {
     private init() {}
 }
 
-//extension NetworkManager: APISearch {}
+extension NetworkManager: APISearch {}
 
 protocol APIJSON {
     func GETRequest(query: String) -> [String : Any]
@@ -21,10 +21,11 @@ protocol APIJSON {
 
 extension APIJSON {
     func GETRequest(query: String) -> [String : Any] {
-        URLSession.shared.invalidateAndCancel()
+        let urlSession = URLSession.shared
+        urlSession.invalidateAndCancel()
 
         let request = generalURLRequest(query: query)
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        urlSession.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 // TODO: handle errors
                 return
