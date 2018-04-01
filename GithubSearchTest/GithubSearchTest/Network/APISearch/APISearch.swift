@@ -9,11 +9,11 @@
 import Foundation
 
 protocol APISearch: APIJSON {
-    func search(queryDomain: QueryDomain, query: String, completion: @escaping (([String : Any]) -> Void))
+    func search(queryDomain: QueryDomain, query: String, completion: @escaping JSONResponse)
 }
 
 extension APISearch {
-    func search(queryDomain: QueryDomain, query: String, completion: @escaping (([String : Any]) -> Void)) {
+    func search(queryDomain: QueryDomain, query: String, completion: @escaping JSONResponse) {
         return GETRequest(queryDomain: queryDomain, query: query, completion: completion)
     }
 }
