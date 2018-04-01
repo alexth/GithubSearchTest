@@ -100,12 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				E5B3732C2070ECD000A03288 /* AppDelegate.swift */,
-				E5B3732E2070ECD000A03288 /* ViewController.swift */,
-				E5B373302070ECD000A03288 /* Main.storyboard */,
-				E5B373362070ECD000A03288 /* Assets.xcassets */,
-				E5B373382070ECD000A03288 /* LaunchScreen.storyboard */,
 				E5B3733B2070ECD000A03288 /* Info.plist */,
-				E5B373332070ECD000A03288 /* GithubSearchTest.xcdatamodeld */,
+				E5B373612070F4BF00A03288 /* Flows */,
+				E5B373602070F4B400A03288 /* Database */,
+				E5B373622070F4F000A03288 /* Design */,
+				E5B3735F2070F4A400A03288 /* Network */,
 			);
 			path = GithubSearchTest;
 			sourceTree = "<group>";
@@ -126,6 +125,47 @@
 				E5B373512070ECD000A03288 /* Info.plist */,
 			);
 			path = GithubSearchTestUITests;
+			sourceTree = "<group>";
+		};
+		E5B3735F2070F4A400A03288 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E5B373602070F4B400A03288 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E5B373332070ECD000A03288 /* GithubSearchTest.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		E5B373612070F4BF00A03288 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				E5B373632070F51E00A03288 /* Main */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		E5B373622070F4F000A03288 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				E5B373382070ECD000A03288 /* LaunchScreen.storyboard */,
+				E5B373362070ECD000A03288 /* Assets.xcassets */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		E5B373632070F51E00A03288 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3732E2070ECD000A03288 /* ViewController.swift */,
+				E5B373302070ECD000A03288 /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
