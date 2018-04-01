@@ -27,7 +27,7 @@ class RepositoryCell: UITableViewCell {
             starsLabel.text = "Stars: \(stars)"
         }
         if let forks = model.forks {
-            forksLabel.text = "fork: \(forks)"
+            forksLabel.text = " fork: \(forks) "
         }
         if let updateDate = model.updateDate {
             let dateString = Date.format(date: updateDate)
