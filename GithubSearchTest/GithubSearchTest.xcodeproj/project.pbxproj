@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E573DF5B2070FA4E000F2AC2 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */; };
+		E573DF5F2070FCBE000F2AC2 /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */; };
+		E573DF602070FCBE000F2AC2 /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */; };
 		E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732C2070ECD000A03288 /* AppDelegate.swift */; };
 		E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732E2070ECD000A03288 /* SearchViewController.swift */; };
 		E5B373322070ECD000A03288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B373302070ECD000A03288 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E5B373292070ECD000A03288 /* GithubSearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3732C2070ECD000A03288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B3732E2070ECD000A03288 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E573DF5C2070FC87000F2AC2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */,
+				E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		E5B373202070ECD000A03288 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +154,7 @@
 			children = (
 				E5B373332070ECD000A03288 /* GithubSearchTest.xcdatamodeld */,
 				E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */,
+				E573DF5C2070FC87000F2AC2 /* Entities */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -305,6 +319,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E573DF5F2070FCBE000F2AC2 /* Repository+CoreDataClass.swift in Sources */,
+				E573DF602070FCBE000F2AC2 /* Repository+CoreDataProperties.swift in Sources */,
 				E573DF5B2070FA4E000F2AC2 /* DatabaseManager.swift in Sources */,
 				E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */,
 				E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */,
