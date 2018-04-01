@@ -35,13 +35,15 @@ class SearchViewController: UIViewController {
     // MARK: - Action
 
     fileprivate func requestRepositories(with query: String) {
-        NetworkManager.shared.GETRequest(queryDomain: .repositories, query: query) { response, error  in
+        NetworkManager.shared.GETRequest(queryDomain: .repositories, query: query) { [weak self] response, error  in
             if let error = error {
                 // TODO: handle error
                 print("\n\(error)\n")
             }
 
-            print("\n\(response)")
+            guard let response = response else { return }
+
+            self?.repositories = RepositoriesMapper.mapRepositories(response: response)
         }
     }
 }
