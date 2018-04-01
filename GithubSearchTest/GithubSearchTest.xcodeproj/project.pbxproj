@@ -26,6 +26,7 @@
 		E5B3733A2070ECD000A03288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B373382070ECD000A03288 /* LaunchScreen.storyboard */; };
 		E5B373452070ECD000A03288 /* GithubSearchTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B373442070ECD000A03288 /* GithubSearchTestTests.swift */; };
 		E5B373502070ECD000A03288 /* GithubSearchTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3734F2070ECD000A03288 /* GithubSearchTestUITests.swift */; };
+		E5EB1FCF2071604700CA1F25 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB1FCE2071604700CA1F25 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		E5B3734B2070ECD000A03288 /* GithubSearchTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubSearchTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3734F2070ECD000A03288 /* GithubSearchTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchTestUITests.swift; sourceTree = "<group>"; };
 		E5B373512070ECD000A03288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5EB1FCE2071604700CA1F25 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				E573DF652070FE83000F2AC2 /* NetworkManager.swift */,
 				E56D4881207155B3008DE83A /* Mapping */,
 				E573DF6720710353000F2AC2 /* URLConfiguration.swift */,
+				E5EB1FCE2071604700CA1F25 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				E573DF6E20711AC9000F2AC2 /* RepositoryCell.swift in Sources */,
 				E56D4883207155E5008DE83A /* RepositoriesMapper.swift in Sources */,
 				E56D488620715B1A008DE83A /* Date+Formatting.swift in Sources */,
+				E5EB1FCF2071604700CA1F25 /* NetworkError.swift in Sources */,
 				E573DF6820710353000F2AC2 /* URLConfiguration.swift in Sources */,
 				E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */,
 				E573DF7120711B9C000F2AC2 /* RepositoryModel.swift in Sources */,

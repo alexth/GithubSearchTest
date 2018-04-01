@@ -15,36 +15,38 @@ class NetworkManager {
 
 extension NetworkManager: APISearch {}
 
+typealias JSONResponse = ([String : Any]?, Error?) -> Void
+
 protocol APIJSON {
     func  GETRequest(queryDomain: QueryDomain,
                      query: String,
-                     completion: @escaping ([String : Any]) -> Void)
+                     completion: @escaping JSONResponse)
 }
 
 extension APIJSON {
     func GETRequest(queryDomain: QueryDomain,
                     query: String,
-                    completion: @escaping ([String : Any]) -> Void) {
+                    completion: @escaping JSONResponse) {
         let urlSession = URLSession.shared
         urlSession.invalidateAndCancel()
 
         let request = generalURLRequest(queryDomain: queryDomain, query: query)
         urlSession.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                // TODO: handle errors
-                return
-            }
-            guard let responseObject = try? JSONSerialization.jsonObject(with: data) else {
-                // TODO: handle errors
-                fatalError("ERROR! Unable to deserialize web response")
-            }
-            guard let responseDictionary = responseObject as? [String : Any] else {
-                // TODO: handle errors
-                fatalError("ERROR! Unable to cast web response")
-            }
-
             DispatchQueue.main.async {
-                return completion(responseDictionary)
+                guard let data = data, error == nil else {
+                    completion(nil, error)
+                    return
+                }
+                guard let responseObject = try? JSONSerialization.jsonObject(with: data) else {
+                    completion(nil, NetworkError.serializationFailed)
+                    return
+                }
+                guard let responseDictionary = responseObject as? [String : Any] else {
+                    completion(nil, NetworkError.castIssue)
+                    return
+                }
+
+                return completion(responseDictionary, nil)
             }
         }.resume()
     }
