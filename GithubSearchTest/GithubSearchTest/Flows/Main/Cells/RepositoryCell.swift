@@ -30,7 +30,8 @@ class RepositoryCell: UITableViewCell {
             forksLabel.text = "fork: \(forks)"
         }
         if let updateDate = model.updateDate {
-            updateDateLabel.text = "updated: \(updateDate)"
+            let dateString = Date.format(date: updateDate)
+            updateDateLabel.text = "updated: \(dateString)"
         }
     }
 }
