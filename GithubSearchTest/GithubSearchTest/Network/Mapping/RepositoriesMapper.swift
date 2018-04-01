@@ -9,7 +9,7 @@
 import Foundation
 
 class RepositoriesMapper {
-    static func mapRepositories(response: [String : Any]) -> [RepositoryModel] {
+    static func map(response: [String : Any]) -> [RepositoryModel] {
         guard let repositories = response["items"] as? [[String : Any]] else {
             return []
         }
@@ -23,8 +23,9 @@ class RepositoriesMapper {
             let updatedString = repository["updated_at"] as? String
             var updatedDate: Date?
             if let updatedString = updatedString {
-                updatedDate = Date.formatDate(string: updatedString)
+                updatedDate = Date.formatISO8601Date(string: updatedString)
             }
+
             let model = RepositoryModel(name: name,
                 description: description,
                 stars: stars,

@@ -32,6 +32,11 @@ class SearchViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSelfSizedCells()
+    }
+
     // MARK: - Action
 
     fileprivate func requestRepositories(with query: String) {
@@ -43,8 +48,15 @@ class SearchViewController: UIViewController {
 
             guard let response = response else { return }
 
-            self?.repositories = RepositoriesMapper.mapRepositories(response: response)
+            self?.repositories = RepositoriesMapper.map(response: response)
         }
+    }
+
+    // MARK: - Utils
+
+    private func setupSelfSizedCells() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 90
     }
 }
 
@@ -61,6 +73,24 @@ extension SearchViewController: UITableViewDataSource {
         cell.updateWith(model: repositories[indexPath.row])
 
         return cell
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
 }
 
