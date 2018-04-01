@@ -16,10 +16,6 @@ class SearchViewController: UIViewController {
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
-        // TODO: test
-        NetworkManager.shared.GETRequest(queryDomain: .repositories, query: "cdvdictionary") { response in
-            print(response)
-        }
         super.viewDidLoad()
     }
 }
