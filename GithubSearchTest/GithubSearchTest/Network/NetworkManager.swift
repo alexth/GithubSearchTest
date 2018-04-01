@@ -43,7 +43,9 @@ extension APIJSON {
                 fatalError("ERROR! Unable to cast web response")
             }
 
-            return completion(responseDictionary)
+            DispatchQueue.main.async {
+                return completion(responseDictionary)
+            }
         }.resume()
     }
 
@@ -54,6 +56,12 @@ extension APIJSON {
         guard let url = URL(string: URLString) else {
             fatalError("ERROR! Unable to build URL")
         }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        // TODO: store in Keychain
+        request.setValue("token 8205782ca42e201e72c189ad3b8284217112fe66", forHTTPHeaderField: "Authorization")
 
         return URLRequest(url: url)
     }

@@ -17,7 +17,13 @@ class SearchViewController: UIViewController {
         static let repositoryCellIdentifier = "repositoryCell"
     }
 
-    private var repositories: [RepositoryModel]
+    private var repositories: [RepositoryModel] {
+        didSet {
+            if let tableView = tableView {
+                tableView.reloadData()
+            }
+        }
+    }
 
     // MARK: - View Lifecycle
 
@@ -26,8 +32,13 @@ class SearchViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Action
+
+    fileprivate func requestRepositories(with query: String) {
+        NetworkManager.shared.GETRequest(queryDomain: .repositories, query: query) { response in
+            // TODO:
+            print("\n\(response)")
+        }
     }
 }
 
@@ -44,5 +55,22 @@ extension SearchViewController: UITableViewDataSource {
         cell.updateWith(model: repositories[indexPath.row])
 
         return cell
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchQuery = searchBar.text else {
+            return
+        }
+
+        requestRepositories(with: searchQuery)
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count > 1 {
+            requestRepositories(with: searchText)
+        }
     }
 }
