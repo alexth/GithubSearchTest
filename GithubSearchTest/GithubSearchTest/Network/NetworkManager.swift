@@ -44,6 +44,10 @@ extension APIJSON {
     // MARK: - Utils
 
     private func generalURLRequest(query: String) -> URLRequest {
-        // TODO: handle URLRequest creation
+        guard let url = URL(string: NetworkConfiguration.URLString(with: query)) else {
+            fatalError("ERROR! Unable to build URL")
+        }
+
+        return URLRequest(url: url)
     }
 }
