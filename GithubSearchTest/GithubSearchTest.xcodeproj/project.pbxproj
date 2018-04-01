@@ -11,6 +11,7 @@
 		E573DF5F2070FCBE000F2AC2 /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */; };
 		E573DF602070FCBE000F2AC2 /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */; };
 		E573DF642070FDA7000F2AC2 /* DatabaseManager+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF632070FDA7000F2AC2 /* DatabaseManager+Repository.swift */; };
+		E573DF662070FE83000F2AC2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF652070FE83000F2AC2 /* NetworkManager.swift */; };
 		E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732C2070ECD000A03288 /* AppDelegate.swift */; };
 		E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732E2070ECD000A03288 /* SearchViewController.swift */; };
 		E5B373322070ECD000A03288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B373302070ECD000A03288 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E573DF632070FDA7000F2AC2 /* DatabaseManager+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseManager+Repository.swift"; sourceTree = "<group>"; };
+		E573DF652070FE83000F2AC2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E5B373292070ECD000A03288 /* GithubSearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3732C2070ECD000A03288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B3732E2070ECD000A03288 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		E5B3735F2070F4A400A03288 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E573DF652070FE83000F2AC2 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				E573DF602070FCBE000F2AC2 /* Repository+CoreDataProperties.swift in Sources */,
 				E573DF5B2070FA4E000F2AC2 /* DatabaseManager.swift in Sources */,
 				E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */,
+				E573DF662070FE83000F2AC2 /* NetworkManager.swift in Sources */,
 				E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */,
 				E573DF642070FDA7000F2AC2 /* DatabaseManager+Repository.swift in Sources */,
 				E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */,
