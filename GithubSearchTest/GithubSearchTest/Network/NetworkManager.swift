@@ -16,15 +16,19 @@ class NetworkManager {
 extension NetworkManager: APISearch {}
 
 protocol APIJSON {
-    func GETRequest(query: String, completion: @escaping ([String : Any]) -> Void)
+    func  GETRequest(queryDomain: QueryDomain,
+                     query: String,
+                     completion: @escaping ([String : Any]) -> Void)
 }
 
 extension APIJSON {
-    func GETRequest(query: String, completion: @escaping ([String : Any]) -> Void) {
+    func GETRequest(queryDomain: QueryDomain,
+                    query: String,
+                    completion: @escaping ([String : Any]) -> Void) {
         let urlSession = URLSession.shared
         urlSession.invalidateAndCancel()
 
-        let request = generalURLRequest(query: query)
+        let request = generalURLRequest(queryDomain: queryDomain, query: query)
         urlSession.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 // TODO: handle errors
@@ -45,8 +49,9 @@ extension APIJSON {
 
     // MARK: - Utils
 
-    private func generalURLRequest(query: String) -> URLRequest {
-        guard let url = URL(string: NetworkConfiguration.URLString(with: query)) else {
+    private func generalURLRequest(queryDomain: QueryDomain, query: String) -> URLRequest {
+        let URLString = URLConfiguration.searchURLStringWith(queryDomain: queryDomain, query: query)
+        guard let url = URL(string: URLString) else {
             fatalError("ERROR! Unable to build URL")
         }
 
