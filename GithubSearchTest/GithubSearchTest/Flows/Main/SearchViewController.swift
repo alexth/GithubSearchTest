@@ -32,6 +32,11 @@ class SearchViewController: UIViewController {
         super.init(coder: aDecoder)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSelfSizedCells()
+    }
+
     // MARK: - Action
 
     fileprivate func requestRepositories(with query: String) {
@@ -45,6 +50,13 @@ class SearchViewController: UIViewController {
 
             self?.repositories = RepositoriesMapper.mapRepositories(response: response)
         }
+    }
+
+    // MARK: - Utils
+
+    private func setupSelfSizedCells() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 90
     }
 }
 
