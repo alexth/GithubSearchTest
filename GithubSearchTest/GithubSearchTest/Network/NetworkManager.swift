@@ -16,11 +16,11 @@ class NetworkManager {
 extension NetworkManager: APISearch {}
 
 protocol APIJSON {
-    func GETRequest(query: String) -> [String : Any]
+    func GETRequest(query: String, completion: @escaping ([String : Any]) -> Void)
 }
 
 extension APIJSON {
-    func GETRequest(query: String) -> [String : Any] {
+    func GETRequest(query: String, completion: @escaping ([String : Any]) -> Void) {
         let urlSession = URLSession.shared
         urlSession.invalidateAndCancel()
 
@@ -30,15 +30,16 @@ extension APIJSON {
                 // TODO: handle errors
                 return
             }
-
-            do {
-                guard let responseObject = try? JSONSerialization.jsonObject(with: data) else {
-                    // TODO: handle errors
-                    return
-                }
-                let responseDictionary = responseObject as! [String : Any]
-                // TODO: handle response
+            guard let responseObject = try? JSONSerialization.jsonObject(with: data) else {
+                // TODO: handle errors
+                fatalError("ERROR! Unable to deserialize web response")
             }
+            guard let responseDictionary = responseObject as? [String : Any] else {
+                // TODO: handle errors
+                fatalError("ERROR! Unable to cast web response")
+            }
+
+            return completion(responseDictionary)
         }.resume()
     }
 
