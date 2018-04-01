@@ -9,12 +9,12 @@
 import Foundation
 
 extension Date {
-    static func formatDate(string: String) -> Date {
+    static func formatISO8601Date(string: String) -> Date {
         let dateFormatter = ISO8601DateFormatter()
         guard let date = dateFormatter.date(from: string) else {
             fatalError("ERROR! Unable to format date")
         }
-        
+
         return date
     }
 }

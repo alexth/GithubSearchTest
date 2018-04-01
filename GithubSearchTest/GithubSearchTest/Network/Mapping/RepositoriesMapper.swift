@@ -23,7 +23,7 @@ class RepositoriesMapper {
             let updatedString = repository["updated_at"] as? String
             var updatedDate: Date?
             if let updatedString = updatedString {
-                updatedDate = Date.formatDate(string: updatedString)
+                updatedDate = Date.formatISO8601Date(string: updatedString)
             }
             
             let model = RepositoryModel(name: name,
