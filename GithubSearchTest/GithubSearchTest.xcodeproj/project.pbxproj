@@ -14,6 +14,8 @@
 		E573DF662070FE83000F2AC2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF652070FE83000F2AC2 /* NetworkManager.swift */; };
 		E573DF6820710353000F2AC2 /* URLConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF6720710353000F2AC2 /* URLConfiguration.swift */; };
 		E573DF6B20710785000F2AC2 /* APISearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF6A20710785000F2AC2 /* APISearch.swift */; };
+		E573DF6E20711AC9000F2AC2 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF6D20711AC9000F2AC2 /* RepositoryCell.swift */; };
+		E573DF7120711B9C000F2AC2 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF7020711B9C000F2AC2 /* RepositoryModel.swift */; };
 		E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732C2070ECD000A03288 /* AppDelegate.swift */; };
 		E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732E2070ECD000A03288 /* SearchViewController.swift */; };
 		E5B373322070ECD000A03288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B373302070ECD000A03288 /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		E573DF652070FE83000F2AC2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E573DF6720710353000F2AC2 /* URLConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConfiguration.swift; sourceTree = "<group>"; };
 		E573DF6A20710785000F2AC2 /* APISearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISearch.swift; sourceTree = "<group>"; };
+		E573DF6D20711AC9000F2AC2 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		E573DF7020711B9C000F2AC2 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		E5B373292070ECD000A03288 /* GithubSearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3732C2070ECD000A03288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B3732E2070ECD000A03288 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,22 @@
 			path = APISearch;
 			sourceTree = "<group>";
 		};
+		E573DF6C20711AA1000F2AC2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E573DF6D20711AC9000F2AC2 /* RepositoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E573DF6F20711B8A000F2AC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E573DF7020711B9C000F2AC2 /* RepositoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E5B373202070ECD000A03288 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +211,7 @@
 				E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */,
 				E573DF5C2070FC87000F2AC2 /* Entities */,
 				E573DF622070FD81000F2AC2 /* Extensions */,
+				E573DF6F20711B8A000F2AC2 /* Models */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -216,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E5B3732E2070ECD000A03288 /* SearchViewController.swift */,
+				E573DF6C20711AA1000F2AC2 /* Cells */,
 				E5B373302070ECD000A03288 /* Main.storyboard */,
 			);
 			path = Main;
@@ -361,8 +383,10 @@
 				E573DF5B2070FA4E000F2AC2 /* DatabaseManager.swift in Sources */,
 				E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */,
 				E573DF662070FE83000F2AC2 /* NetworkManager.swift in Sources */,
+				E573DF6E20711AC9000F2AC2 /* RepositoryCell.swift in Sources */,
 				E573DF6820710353000F2AC2 /* URLConfiguration.swift in Sources */,
 				E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */,
+				E573DF7120711B9C000F2AC2 /* RepositoryModel.swift in Sources */,
 				E573DF642070FDA7000F2AC2 /* DatabaseManager+Repository.swift in Sources */,
 				E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */,
 			);
