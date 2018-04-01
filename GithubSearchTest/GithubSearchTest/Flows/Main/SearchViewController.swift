@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
 
             guard let response = response else { return }
 
-            self?.repositories = RepositoriesMapper.mapRepositories(response: response)
+            self?.repositories = RepositoriesMapper.map(response: response)
         }
     }
 

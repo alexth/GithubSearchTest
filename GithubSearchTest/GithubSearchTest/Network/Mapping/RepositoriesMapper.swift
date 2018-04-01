@@ -9,7 +9,7 @@
 import Foundation
 
 class RepositoriesMapper {
-    static func mapRepositories(response: [String : Any]) -> [RepositoryModel] {
+    static func map(response: [String : Any]) -> [RepositoryModel] {
         guard let repositories = response["items"] as? [[String : Any]] else {
             return []
         }
