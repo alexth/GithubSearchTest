@@ -11,10 +11,6 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
-
-    fileprivate let baseURL: String = {
-        return "https://api.github.com"
-    }()
 }
 
 //extension NetworkManager: APISearch {}
