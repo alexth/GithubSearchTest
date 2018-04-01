@@ -17,7 +17,13 @@ class SearchViewController: UIViewController {
         static let repositoryCellIdentifier = "repositoryCell"
     }
 
-    private var repositories: [RepositoryModel]
+    private var repositories: [RepositoryModel] {
+        didSet {
+            if let tableView = tableView {
+                tableView.reloadData()
+            }
+        }
+    }
 
     // MARK: - View Lifecycle
 
