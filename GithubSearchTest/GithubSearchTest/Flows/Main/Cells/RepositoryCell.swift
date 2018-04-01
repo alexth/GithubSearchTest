@@ -17,10 +17,20 @@ class RepositoryCell: UITableViewCell {
     @IBOutlet weak var updateDateLabel: UILabel!
 
     func updateWith(model: RepositoryModel) {
-        nameLabel.text = model.name
-        descriptionLabel.text = model.description
-        starsLabel.text = "Stars: \(model.stars)"
-        forksLabel.text = "fork: \(model.forks)"
-        updateDateLabel.text = "updated: \(model.updateDate)"
+        if let name = model.name {
+            nameLabel.text = name
+        }
+        if let description = model.description {
+            descriptionLabel.text = description
+        }
+        if let stars = model.stars {
+            starsLabel.text = "Stars: \(stars)"
+        }
+        if let forks = model.forks {
+            forksLabel.text = "fork: \(forks)"
+        }
+        if let updateDate = model.updateDate {
+            updateDateLabel.text = "updated: \(updateDate)"
+        }
     }
 }
