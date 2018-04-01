@@ -55,6 +55,8 @@ extension APIJSON {
             fatalError("ERROR! Unable to build URL")
         }
 
+        print("\n\(URLString)\n")
+
         return URLRequest(url: url)
     }
 }
