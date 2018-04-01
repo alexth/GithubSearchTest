@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E56D4883207155E5008DE83A /* RepositoriesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D4882207155E5008DE83A /* RepositoriesMapper.swift */; };
+		E56D488620715B1A008DE83A /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D488520715B1A008DE83A /* Date+Formatting.swift */; };
 		E573DF5B2070FA4E000F2AC2 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */; };
 		E573DF5F2070FCBE000F2AC2 /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */; };
 		E573DF602070FCBE000F2AC2 /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E56D4882207155E5008DE83A /* RepositoriesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesMapper.swift; sourceTree = "<group>"; };
+		E56D488520715B1A008DE83A /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E573DF5D2070FCBE000F2AC2 /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E573DF5E2070FCBE000F2AC2 /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -94,6 +98,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E56D4881207155B3008DE83A /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				E56D4882207155E5008DE83A /* RepositoriesMapper.swift */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		E56D488420715A9D008DE83A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E56D488520715B1A008DE83A /* Date+Formatting.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E573DF5C2070FC87000F2AC2 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +188,7 @@
 			children = (
 				E5B3732C2070ECD000A03288 /* AppDelegate.swift */,
 				E5B3733B2070ECD000A03288 /* Info.plist */,
+				E56D488420715A9D008DE83A /* Extensions */,
 				E5B373612070F4BF00A03288 /* Flows */,
 				E5B373602070F4B400A03288 /* Database */,
 				E5B373622070F4F000A03288 /* Design */,
@@ -197,9 +218,10 @@
 		E5B3735F2070F4A400A03288 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E573DF652070FE83000F2AC2 /* NetworkManager.swift */,
-				E573DF6720710353000F2AC2 /* URLConfiguration.swift */,
 				E573DF6920710773000F2AC2 /* APISearch */,
+				E573DF652070FE83000F2AC2 /* NetworkManager.swift */,
+				E56D4881207155B3008DE83A /* Mapping */,
+				E573DF6720710353000F2AC2 /* URLConfiguration.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -384,6 +406,8 @@
 				E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */,
 				E573DF662070FE83000F2AC2 /* NetworkManager.swift in Sources */,
 				E573DF6E20711AC9000F2AC2 /* RepositoryCell.swift in Sources */,
+				E56D4883207155E5008DE83A /* RepositoriesMapper.swift in Sources */,
+				E56D488620715B1A008DE83A /* Date+Formatting.swift in Sources */,
 				E573DF6820710353000F2AC2 /* URLConfiguration.swift in Sources */,
 				E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */,
 				E573DF7120711B9C000F2AC2 /* RepositoryModel.swift in Sources */,
