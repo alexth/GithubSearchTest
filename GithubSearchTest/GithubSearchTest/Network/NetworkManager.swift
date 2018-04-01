@@ -43,7 +43,9 @@ extension APIJSON {
                 fatalError("ERROR! Unable to cast web response")
             }
 
-            return completion(responseDictionary)
+            DispatchQueue.main.async {
+                return completion(responseDictionary)
+            }
         }.resume()
     }
 
