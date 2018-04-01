@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732C2070ECD000A03288 /* AppDelegate.swift */; };
-		E5B3732F2070ECD000A03288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732E2070ECD000A03288 /* ViewController.swift */; };
+		E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3732E2070ECD000A03288 /* SearchViewController.swift */; };
 		E5B373322070ECD000A03288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B373302070ECD000A03288 /* Main.storyboard */; };
 		E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5B373332070ECD000A03288 /* GithubSearchTest.xcdatamodeld */; };
 		E5B373372070ECD000A03288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B373362070ECD000A03288 /* Assets.xcassets */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		E5B373292070ECD000A03288 /* GithubSearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3732C2070ECD000A03288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5B3732E2070ECD000A03288 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5B3732E2070ECD000A03288 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E5B373312070ECD000A03288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B373342070ECD000A03288 /* GithubSearchTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubSearchTest.xcdatamodel; sourceTree = "<group>"; };
 		E5B373362070ECD000A03288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		E5B373632070F51E00A03288 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E5B3732E2070ECD000A03288 /* ViewController.swift */,
+				E5B3732E2070ECD000A03288 /* SearchViewController.swift */,
 				E5B373302070ECD000A03288 /* Main.storyboard */,
 			);
 			path = Main;
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B3732F2070ECD000A03288 /* ViewController.swift in Sources */,
+				E5B3732F2070ECD000A03288 /* SearchViewController.swift in Sources */,
 				E5B373352070ECD000A03288 /* GithubSearchTest.xcdatamodeld in Sources */,
 				E5B3732D2070ECD000A03288 /* AppDelegate.swift in Sources */,
 			);
