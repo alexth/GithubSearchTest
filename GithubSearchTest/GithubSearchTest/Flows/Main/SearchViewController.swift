@@ -40,6 +40,11 @@ class SearchViewController: UIViewController {
         setupKeyboardDismissMode()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchBar.becomeFirstResponder()
+    }
+
     // MARK: - Action
 
     fileprivate func requestRepositories(with query: String) {
