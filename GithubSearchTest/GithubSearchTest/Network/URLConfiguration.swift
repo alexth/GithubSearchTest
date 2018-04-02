@@ -17,8 +17,6 @@ struct URLConfiguration {
     static func searchURLStringWith(queryDomain: QueryDomain, query: String) -> String {
         let baseURL = URLConfiguration().baseURL
 
-        // TODO: test
-//        return baseURL + "search/" + "\(queryDomain.rawValue)" + "?q=" + query
         return baseURL + "\(queryDomain.rawValue)/\(query)/repos"
     }
 
