@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias LanguageGroup = (language: String, models: [RepositoryModel])
+
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,7 +19,7 @@ class SearchViewController: UIViewController {
         static let repositoryCellIdentifier = "repositoryCell"
     }
 
-    private var repositories: [RepositoryModel] {
+    private var repositories: [LanguageGroup] {
         didSet {
             if let tableView = tableView {
                 tableView.reloadData()
@@ -35,6 +37,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelfSizedCells()
+        // TODO: test
+        requestRepositories(with: "alexth")
     }
 
     // MARK: - Action
@@ -61,8 +65,12 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return repositories.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositories[section].models.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +78,7 @@ extension SearchViewController: UITableViewDataSource {
             fatalError("ERROR! Unable to dequeue RepositoryCell")
         }
 
-        cell.updateWith(model: repositories[indexPath.row])
+        cell.updateWith(model: repositories[indexPath.section].models[indexPath.row])
 
         return cell
     }
