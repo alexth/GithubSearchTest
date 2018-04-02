@@ -87,6 +87,7 @@ extension SearchViewController: UITableViewDataSource {
         }
 
         cell.updateWith(model: repositories[indexPath.section].models[indexPath.row])
+        cell.color(for: indexPath)
 
         return cell
     }
