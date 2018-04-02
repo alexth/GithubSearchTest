@@ -120,7 +120,8 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchQuery = searchBar.text else {
+        guard let searchQuery = searchBar.text,
+            searchQuery.count > 1 else {
             return
         }
 
@@ -131,6 +132,14 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 1 {
             requestRepositories(with: searchText)
+        } else {
+            repositories = []
         }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        repositories = []
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }
