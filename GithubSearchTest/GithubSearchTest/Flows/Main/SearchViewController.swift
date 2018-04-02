@@ -88,7 +88,9 @@ extension SearchViewController: UITableViewDelegate {
             fatalError("ERROR! Unable to instantiate TableHeaderView")
         }
 
-        headerView.updateWith(headerText: repositories[section].language)
+        let section = repositories[section]
+        let headerText = "\(section.language) (\(section.models.count))"
+        headerView.updateWith(headerText: headerText)
 
         return headerView
     }
