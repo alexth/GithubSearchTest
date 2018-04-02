@@ -21,12 +21,12 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="lA3-pN-zqr"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vNY-Rg-pKd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="M4m-4s-vEV"/>
                 <constraint firstItem="vNY-Rg-pKd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gVh-pY-tMh"/>
