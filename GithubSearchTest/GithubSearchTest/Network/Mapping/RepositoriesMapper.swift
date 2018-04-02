@@ -44,9 +44,11 @@ class RepositoriesMapper {
         let languages = Set(models.compactMap { $0.language })
         for language in languages {
             let languageModels = models.filter { $0.language == language }
-            let group: LanguageGroup = (language, languageModels)
+            let starsFilteredModels = languageModels.sorted { ($0.stars ?? 0) > ($1.stars ?? 0) }
+            let group: LanguageGroup = (language, starsFilteredModels)
             groups.append(group)
         }
+        groups = groups.sorted { $0.models.count > $1.models.count }
 
         return groups
     }
