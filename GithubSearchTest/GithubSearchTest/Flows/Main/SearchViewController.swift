@@ -37,8 +37,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelfSizedCells()
-        // TODO: test
-        requestRepositories(with: "alexth")
     }
 
     // MARK: - Action
@@ -86,11 +84,17 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        guard let headerView = Bundle.main.loadNibNamed("TableHeaderView", owner: self, options: nil)?.first as? TableHeaderView else {
+            fatalError("ERROR! Unable to instantiate TableHeaderView")
+        }
+
+        headerView.updateWith(headerText: repositories[section].language)
+
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+        return 26
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
