@@ -34,4 +34,12 @@ class RepositoryCell: UITableViewCell {
             updateDateLabel.text = "updated: \(dateString)"
         }
     }
+
+    func color(for indexPath: IndexPath) {
+        if indexPath.row % 2 == 0 {
+            backgroundColor = UIColor(named: "cellYellow")
+        } else {
+            backgroundColor = .white
+        }
+    }
 }

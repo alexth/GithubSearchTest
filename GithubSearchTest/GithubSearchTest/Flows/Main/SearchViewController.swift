@@ -37,6 +37,12 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelfSizedCells()
+        setupKeyboardDismissMode()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchBar.becomeFirstResponder()
     }
 
     // MARK: - Action
@@ -60,6 +66,10 @@ class SearchViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 90
     }
+
+    private func setupKeyboardDismissMode() {
+        tableView.keyboardDismissMode = .onDrag
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -77,6 +87,7 @@ extension SearchViewController: UITableViewDataSource {
         }
 
         cell.updateWith(model: repositories[indexPath.section].models[indexPath.row])
+        cell.color(for: indexPath)
 
         return cell
     }
@@ -110,7 +121,8 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchQuery = searchBar.text else {
+        guard let searchQuery = searchBar.text,
+            searchQuery.count > 1 else {
             return
         }
 
@@ -121,6 +133,14 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 1 {
             requestRepositories(with: searchText)
+        } else {
+            repositories = []
         }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        repositories = []
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }
