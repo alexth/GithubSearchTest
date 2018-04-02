@@ -37,6 +37,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSelfSizedCells()
+        setupKeyboardDismissMode()
     }
 
     // MARK: - Action
@@ -59,6 +60,10 @@ class SearchViewController: UIViewController {
     private func setupSelfSizedCells() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 90
+    }
+
+    private func setupKeyboardDismissMode() {
+        tableView.keyboardDismissMode = .onDrag
     }
 }
 
