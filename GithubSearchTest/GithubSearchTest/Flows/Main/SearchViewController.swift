@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias LanguageGroup = (language: String, models: [RepositoryModel])
+
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,7 +19,7 @@ class SearchViewController: UIViewController {
         static let repositoryCellIdentifier = "repositoryCell"
     }
 
-    private var repositories: [RepositoryModel] {
+    private var repositories: [LanguageGroup] {
         didSet {
             if let tableView = tableView {
                 tableView.reloadData()
@@ -40,7 +42,7 @@ class SearchViewController: UIViewController {
     // MARK: - Action
 
     fileprivate func requestRepositories(with query: String) {
-        NetworkManager.shared.GETRequest(queryDomain: .repositories, query: query) { [weak self] response, error  in
+        NetworkManager.shared.GETRequest(queryDomain: .users, query: query) { [weak self] response, error  in
             if let error = error {
                 // TODO: handle error
                 print("\n\(error)\n")
@@ -61,8 +63,12 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return repositories.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositories[section].models.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +76,7 @@ extension SearchViewController: UITableViewDataSource {
             fatalError("ERROR! Unable to dequeue RepositoryCell")
         }
 
-        cell.updateWith(model: repositories[indexPath.row])
+        cell.updateWith(model: repositories[indexPath.section].models[indexPath.row])
 
         return cell
     }
@@ -78,11 +84,19 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        guard let headerView = Bundle.main.loadNibNamed("TableHeaderView", owner: self, options: nil)?.first as? TableHeaderView else {
+            fatalError("ERROR! Unable to instantiate TableHeaderView")
+        }
+
+        let section = repositories[section]
+        let headerText = "\(section.language) (\(section.models.count))"
+        headerView.updateWith(headerText: headerText)
+
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+        return 26
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

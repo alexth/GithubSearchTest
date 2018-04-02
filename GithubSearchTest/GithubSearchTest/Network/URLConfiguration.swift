@@ -10,13 +10,14 @@ import Foundation
 
 enum QueryDomain: String {
     case repositories = "repositories"
+    case users = "users"
 }
 
 struct URLConfiguration {
     static func searchURLStringWith(queryDomain: QueryDomain, query: String) -> String {
         let baseURL = URLConfiguration().baseURL
 
-        return baseURL + "search/" + "\(queryDomain.rawValue)" + "?q=" + query
+        return baseURL + "\(queryDomain.rawValue)/\(query)/repos"
     }
 
     private let baseURL: String = {

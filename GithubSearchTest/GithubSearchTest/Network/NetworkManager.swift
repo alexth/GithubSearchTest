@@ -15,7 +15,7 @@ class NetworkManager {
 
 extension NetworkManager: APISearch {}
 
-typealias JSONResponse = ([String : Any]?, Error?) -> Void
+typealias JSONResponse = ([[String : Any]]?, Error?) -> Void
 
 protocol APIJSON {
     func  GETRequest(queryDomain: QueryDomain,
@@ -41,7 +41,7 @@ extension APIJSON {
                     completion(nil, NetworkError.serializationFailed)
                     return
                 }
-                guard let responseDictionary = responseObject as? [String : Any] else {
+                guard let responseDictionary = responseObject as? [[String : Any]] else {
                     completion(nil, NetworkError.castIssue)
                     return
                 }
