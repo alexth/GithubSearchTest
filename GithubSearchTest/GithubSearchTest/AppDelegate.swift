@@ -13,6 +13,12 @@ import OAuthSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let oauthSwift = OAuth2Swift(
+        consumerKey:    "785a237c63e910951d03",
+        consumerSecret: "19d5ccee384747ae27cc391462dd6bb62e79c7be",
+        authorizeUrl:   "https://github.com/login/oauth/authorize",
+        responseType:   "token"
+    )
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
