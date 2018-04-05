@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OAuthSwift
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -30,25 +31,27 @@ extension APIJSON {
         let urlSession = URLSession.shared
         urlSession.invalidateAndCancel()
 
-        let request = generalURLRequest(queryDomain: queryDomain, query: query)
-        urlSession.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    completion(nil, error)
-                    return
-                }
-                guard let responseObject = try? JSONSerialization.jsonObject(with: data) else {
-                    completion(nil, NetworkError.serializationFailed)
-                    return
-                }
-                guard let responseDictionary = responseObject as? [[String : Any]] else {
-                    completion(nil, NetworkError.castIssue)
-                    return
-                }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("ERROR! Unable to obtain AppDelegate instance")
+        }
 
-                return completion(responseDictionary, nil)
+        let URLString = URLConfiguration.searchURLStringWith(queryDomain: queryDomain, query: query)
+        _ = appDelegate.oauthSwift.client.get(URLString, success: { response in
+            guard let responseObject = try? JSONSerialization.jsonObject(with: response.data) else {
+                completion(nil, NetworkError.serializationFailed)
+                return
             }
-        }.resume()
+            guard let responseDictionary = responseObject as? [[String : Any]] else {
+                completion(nil, NetworkError.castIssue)
+                return
+            }
+
+            print(responseDictionary)
+            return completion(responseDictionary, nil)
+        }) { error in
+            print(error)
+            completion(nil, error)
+        }
     }
 
     // MARK: - Utils
