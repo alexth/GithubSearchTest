@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+
+target 'GithubSearchTest' do
+  use_frameworks!
+
+  # Pods for GithubSearchTest
+  pod 'OAuthSwift', '~> 1.2.0'
+
+  target 'GithubSearchTestTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GithubSearchTestUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

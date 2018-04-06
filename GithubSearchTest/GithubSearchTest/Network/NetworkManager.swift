@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OAuthSwift
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -30,25 +31,21 @@ extension APIJSON {
         let urlSession = URLSession.shared
         urlSession.invalidateAndCancel()
 
-        let request = generalURLRequest(queryDomain: queryDomain, query: query)
-        urlSession.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    completion(nil, error)
-                    return
-                }
-                guard let responseObject = try? JSONSerialization.jsonObject(with: data) else {
-                    completion(nil, NetworkError.serializationFailed)
-                    return
-                }
-                guard let responseDictionary = responseObject as? [[String : Any]] else {
-                    completion(nil, NetworkError.castIssue)
-                    return
-                }
-
-                return completion(responseDictionary, nil)
+        let URLString = URLConfiguration.searchURLStringWith(queryDomain: queryDomain, query: query)
+        _ = OAuthManager.shared.oauthSwift.client.get(URLString, success: { response in
+            guard let responseObject = try? JSONSerialization.jsonObject(with: response.data) else {
+                completion(nil, NetworkError.serializationFailed)
+                return
             }
-        }.resume()
+            guard let responseDictionary = responseObject as? [[String : Any]] else {
+                completion(nil, NetworkError.castIssue)
+                return
+            }
+
+            return completion(responseDictionary, nil)
+        }) { error in
+            completion(nil, error)
+        }
     }
 
     // MARK: - Utils
@@ -62,8 +59,6 @@ extension APIJSON {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "content-type")
-        // TODO: store in Keychain
-        request.setValue("token 8205782ca42e201e72c189ad3b8284217112fe66", forHTTPHeaderField: "Authorization")
 
         return URLRequest(url: url)
     }

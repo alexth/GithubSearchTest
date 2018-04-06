@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 typealias LanguageGroup = (language: String, models: [RepositoryModel])
 
@@ -26,6 +27,8 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    private let oauthManager = OAuthManager.shared
+    private var oauthSwift: OAuth2Swift?
 
     // MARK: - View Lifecycle
 
@@ -43,6 +46,7 @@ class SearchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.becomeFirstResponder()
+        checkOAuthSetup()
     }
 
     // MARK: - Action
@@ -54,12 +58,32 @@ class SearchViewController: UIViewController {
                 print("\n\(error)\n")
             }
 
+            if let oauthError = error as? OAuthSwiftError {
+                switch oauthError {
+                case .missingToken:
+                    self?.doOAuthGithub()
+                default:
+                    // TODO: handle all cases
+                    print("\(error)")
+                }
+            }
+
+            // TODO: handle
             guard let response = response else { return }
 
             self?.repositories = RepositoriesMapper.map(response: response)
         }
     }
 
+    private func doOAuthGithub(){
+        oauthManager.authenticateGithub()
+    }
+
+    private func checkOAuthSetup() {
+        if !oauthManager.isTokenSet {
+            doOAuthGithub()
+        }
+    }
     // MARK: - Utils
 
     private func setupSelfSizedCells() {
