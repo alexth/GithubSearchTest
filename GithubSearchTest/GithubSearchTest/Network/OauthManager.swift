@@ -26,9 +26,13 @@ class OAuthManager {
     }
 
     func authenticateGithub() {
+        guard let url = URL(string: "oauth-callback://host/") else {
+            return
+        }
+
         let state = generateState(withLength: 20)
         let _ = oauthSwift.authorize(
-            withCallbackURL: URL(string: "oauth-callback://host/")!,
+            withCallbackURL: url,
             scope: "repo",
             state: state,
             success: { credential, response, parameters in
