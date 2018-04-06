@@ -31,12 +31,8 @@ extension APIJSON {
         let urlSession = URLSession.shared
         urlSession.invalidateAndCancel()
 
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("ERROR! Unable to obtain AppDelegate instance")
-        }
-
         let URLString = URLConfiguration.searchURLStringWith(queryDomain: queryDomain, query: query)
-        _ = appDelegate.oauthSwift.client.get(URLString, success: { response in
+        _ = OAuthManager.shared.oauthSwift.client.get(URLString, success: { response in
             guard let responseObject = try? JSONSerialization.jsonObject(with: response.data) else {
                 completion(nil, NetworkError.serializationFailed)
                 return
@@ -46,10 +42,8 @@ extension APIJSON {
                 return
             }
 
-            print(responseDictionary)
             return completion(responseDictionary, nil)
         }) { error in
-            print(error)
             completion(nil, error)
         }
     }
