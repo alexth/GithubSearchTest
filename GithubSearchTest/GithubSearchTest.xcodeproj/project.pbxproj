@@ -12,6 +12,7 @@
 		E51BEF71FA27EB9F7E0C37B9 /* Pods_GithubSearchTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A643F51EC35A1FD3B2371C0 /* Pods_GithubSearchTest.framework */; };
 		E521AF2120722C17006CE7CC /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E521AF2020722C17006CE7CC /* TableHeaderView.swift */; };
 		E521AF2320722C73006CE7CC /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E521AF2220722C73006CE7CC /* TableHeaderView.xib */; };
+		E563015720780BD100C1E4BA /* OauthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E563015620780BD100C1E4BA /* OauthManager.swift */; };
 		E56D4883207155E5008DE83A /* RepositoriesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D4882207155E5008DE83A /* RepositoriesMapper.swift */; };
 		E56D488620715B1A008DE83A /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D488520715B1A008DE83A /* Date+Formatting.swift */; };
 		E573DF5B2070FA4E000F2AC2 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */; };
@@ -63,6 +64,7 @@
 		BD51A28D8B5E365CE6215DA5 /* Pods_GithubSearchTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubSearchTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E521AF2020722C17006CE7CC /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		E521AF2220722C73006CE7CC /* TableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
+		E563015620780BD100C1E4BA /* OauthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthManager.swift; sourceTree = "<group>"; };
 		E56D4882207155E5008DE83A /* RepositoriesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesMapper.swift; sourceTree = "<group>"; };
 		E56D488520715B1A008DE83A /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		E573DF5A2070FA4E000F2AC2 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				E56D4881207155B3008DE83A /* Mapping */,
 				E573DF6720710353000F2AC2 /* URLConfiguration.swift */,
 				E5EB1FCE2071604700CA1F25 /* NetworkError.swift */,
+				E563015620780BD100C1E4BA /* OauthManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E563015720780BD100C1E4BA /* OauthManager.swift in Sources */,
 				E573DF5F2070FCBE000F2AC2 /* Repository+CoreDataClass.swift in Sources */,
 				E573DF602070FCBE000F2AC2 /* Repository+CoreDataProperties.swift in Sources */,
 				E573DF6B20710785000F2AC2 /* APISearch.swift in Sources */,
@@ -799,6 +803,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96837XF4KD;
 				INFOPLIST_FILE = GithubSearchTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.GithubSearchTest;
@@ -814,6 +819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 96837XF4KD;
 				INFOPLIST_FILE = GithubSearchTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.GithubSearchTest;
